@@ -1,6 +1,39 @@
 composer.phar
 /vendor/
 
+# Composer dependencies
+/vendor/
+
+# Logs
+*.log
+
+# Temporary files
+/tmp/
+*.cache
+*.bak
+
+# Environment files
+.env
+
+# IDE files
+.idea/
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# PHPUnit test result files
+.phpunit.result.cache
+
+# Composer lock file (if you want to ignore it)
+# composer.lock
+
+# Other common files
+*.swp
+*.swo
+
+
 # Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
 # composer.lock
