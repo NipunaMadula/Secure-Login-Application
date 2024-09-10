@@ -1,0 +1,15 @@
+{
+    "name": "hp/secure-login-application",
+    "description": "A secure login application using PHP and MySQL.",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nipuna Madula",
+            "email": "nipunamadula2001@gmail.com"
+        }
+    ]
+}
