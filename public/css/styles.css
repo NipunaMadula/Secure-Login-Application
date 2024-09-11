@@ -1,0 +1,78 @@
+/* Global Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #e9ecef; /* Light gray background */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto; /* Centering with top margin */
+    padding: 30px;
+    background-color: #ffffff; /* White background for the form */
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    color: #343a40; /* Dark gray color for better contrast */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px; /* Increased padding for better touch targets */
+    margin: 10px 0;
+    border: 1px solid #ced4da; /* Light border */
+    border-radius: 8px; /* Softer corners */
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff; /* Bootstrap primary color */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Highlight effect */
+    outline: none; /* Remove default outline */
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Softer corners */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold; /* Bold text for emphasis */
+    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px; /* Less padding on smaller screens */
+        width: 90%; /* Full width on mobile */
+    }
+
+    h2 {
+        font-size: 1.6em; /* Slightly larger on mobile */
+    }
+}
