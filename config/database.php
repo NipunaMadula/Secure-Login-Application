@@ -9,6 +9,7 @@ $dotenv->load();
 class Database {
     private $conn;
 
+    // Function to get the database connection
     public function getConnection() {
         $this->conn = null; // Initialize the connection as null
         try {
@@ -23,4 +24,3 @@ class Database {
         return $this->conn; // Return the connection
     }
 }
-
