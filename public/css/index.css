@@ -1,0 +1,62 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Position the content at the top */
+    align-items: center;
+}
+
+/* Header Styling for Modern Website Look */
+.page-header {
+    text-align: center;
+    margin-top: 50px; /* Position the header closer to the top */
+}
+
+.page-header h1 {
+    font-size: 36px; /* Slightly smaller to keep it elegant */
+    font-weight: bold;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px; /* Space between the header and the buttons */
+    letter-spacing: 1.5px;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 400px; /* Ensure the buttons are closer together */
+}
+
+/* Button Styles */
+.btn {
+    text-decoration: none;
+    padding: 15px 40px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: 45%; /* Adjust width to make the buttons smaller */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Button Alignment */
+.left-btn {
+    margin-right: 10px;
+}
+
+.right-btn {
+    margin-left: 10px;
+}
