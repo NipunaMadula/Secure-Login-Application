@@ -1,62 +1,47 @@
-/* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background color */
     margin: 0;
     padding: 0;
-    height: 100vh;
-    background-color: #f0f2f5;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Position the content at the top */
-    align-items: center;
 }
 
-/* Header Styling for Modern Website Look */
-.page-header {
-    text-align: center;
-    margin-top: 50px; /* Position the header closer to the top */
+.container {
+    text-align: center; /* Centered text */
+    margin-top: 50px; /* Space from the top */
 }
 
-.page-header h1 {
-    font-size: 36px; /* Slightly smaller to keep it elegant */
-    font-weight: bold;
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-bottom: 50px; /* Space between the header and the buttons */
-    letter-spacing: 1.5px;
+h1 {
+    font-size: 2em; /* Larger font size for the heading */
+    margin-bottom: 20px; /* Space below the heading */
 }
 
-/* Button Container */
 .button-container {
-    display: flex;
-    justify-content: space-between;
-    width: 400px; /* Ensure the buttons are closer together */
+    display: flex; /* Flexbox for button alignment */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 20px; /* Space between buttons */
 }
 
-/* Button Styles */
-.btn {
-    text-decoration: none;
-    padding: 15px 40px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    width: 45%; /* Adjust width to make the buttons smaller */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.button {
+    display: inline-block; /* Inline block for buttons */
+    padding: 10px 20px; /* Padding for button */
+    background-color: #5cb85c; /* Button color */
+    color: white; /* Text color */
+    text-decoration: none; /* No underline */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1.2em; /* Larger font size for button text */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
-.btn:hover {
-    background-color: #0056b3;
+.button:hover {
+    background-color: #4cae4c; /* Darker green on hover */
 }
 
-/* Button Alignment */
-.left-btn {
-    margin-right: 10px;
+.login-link {
+    color: #5cb85c; /* Same color as button for consistency */
+    text-decoration: none; /* No underline */
+    font-weight: bold; /* Bold text for emphasis */
 }
 
-.right-btn {
-    margin-left: 10px;
+.login-link:hover {
+    text-decoration: underline; /* Underline on hover */
 }

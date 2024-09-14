@@ -1,0 +1,113 @@
+/* General container styling */
+.container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Page header */
+.container h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Table styling */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+table thead th {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 16px;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table tbody td {
+    padding: 10px 15px;
+    font-size: 15px;
+    color: #555;
+}
+
+table tbody td a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+table tbody td a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Button to add new users */
+.add-user-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.add-user-btn:hover {
+    background-color: #218838;
+}
+
+/* Pagination styling */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    table thead th, table tbody td {
+        font-size: 14px;
+    }
+}
