@@ -5,7 +5,7 @@ session_start();
 // Include necessary files
 require_once __DIR__ . '/../../config/database.php'; // Adjusted path to the database file
 
-// Check if user is logged in, if not redirect to login page
+// Check if the user is logged in, if not, redirect to the login page
 if (!isset($_SESSION['user_id'])) {
     header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/login.php");
     exit();
@@ -28,8 +28,8 @@ $role = $_SESSION['role'];
 <body>
     <header>
         <div class="header-container">
-            <h1>Welcome, <?php echo htmlspecialchars($username); ?></h1>
-            <p>Role: <?php echo htmlspecialchars($role); ?></p>
+            <h1>Welcome, <?php echo htmlspecialchars($username, ENT_QUOTES, 'UTF-8'); ?></h1>
+            <p>Role: <?php echo htmlspecialchars($role, ENT_QUOTES, 'UTF-8'); ?></p>
         </div>
     </header>
     
@@ -39,9 +39,9 @@ $role = $_SESSION['role'];
         
         <div class="button-container">
             <!-- Add buttons or links for admin functionalities -->
-            <button onclick="location.href='manage_users.php'" class="admin-btn">Manage Users</button>
-            <button onclick="location.href='view_reports.php'" class="admin-btn">View Reports</button>
-            <button onclick="location.href='settings.php'" class="admin-btn">Settings</button>
+            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/manage_users.php'" class="admin-btn">Manage Users</button>
+            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/view_reports.php'" class="admin-btn">View Reports</button>
+            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/settings.php'" class="admin-btn">Settings</button>
         </div>
     </main>
 

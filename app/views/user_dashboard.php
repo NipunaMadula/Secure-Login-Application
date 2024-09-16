@@ -1,14 +1,15 @@
 <?php 
 session_start();
+
+// Check if the user is logged in by verifying the 'fullname' session variable
 if (!isset($_SESSION['fullname'])) {
     // Redirect to login if the user is not logged in
-    header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/login.php"); // Corrected path
+    header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/login.php");
     exit();
 }
 ?>
 
-
-<?php include 'partials/header.php'; ?>
+<?php include __DIR__ . '/partials/header.php'; ?>
 
 <div class="dashboard-container">
     <h1>Welcome to your Dashboard, <?php echo htmlspecialchars($_SESSION['fullname'], ENT_QUOTES, 'UTF-8'); ?>!</h1>
@@ -22,4 +23,4 @@ if (!isset($_SESSION['fullname'])) {
     </div>
 </div>
 
-<?php include 'partials/footer.php'; ?>
+<?php include __DIR__ . '/partials/footer.php'; ?>

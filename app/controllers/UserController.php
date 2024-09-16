@@ -1,44 +1,67 @@
-<?php
+<?php 
 
-require_once '../app/models/User.php';
+require_once __DIR__ . '/../models/User.php'; // Use __DIR__ for the correct path
 
 class UserController
 {
-    // Ensure user is logged in for every action in this controller
     public function __construct()
     {
-        if (!isset($_SESSION)) {
+        // Start the session if it's not already started
+        if (session_status() === PHP_SESSION_NONE) {
             session_start();
-        }
-        if (!isset($_SESSION['user_id'])) {
-            // Redirect to login if user is not logged in
-            header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/login.php");
-            exit();
         }
     }
 
     // Show user dashboard
     public function showDashboard()
     {
-        // Fetch any user-specific data needed for the dashboard, for example:
-        // $userData = User::getUserData($_SESSION['user_id']);
-        include '../app/views/user_dashboard.php';
+        // Check if user is logged in
+        if (!isset($_SESSION['user_id'])) {
+            // Redirect to login if user is not logged in
+            header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/login.php");
+            exit();
+        }
+
+        // Include the user dashboard view using __DIR__
+        include __DIR__ . '/../views/user_dashboard.php'; // Corrected path
     }
 
     // Show user profile page
     public function showProfile()
     {
+        // Check if user is logged in
+        if (!isset($_SESSION['user_id'])) {
+            // Redirect to login if user is not logged in
+            header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/login.php");
+            exit();
+        }
+
         // Fetch user details from the User model
         $userId = $_SESSION['user_id'];
         $user = User::getUserById($userId);
 
-        include '../app/views/user_profile.php';
+        // Check if user exists
+        if ($user) {
+            include __DIR__ . '/../views/user_profile.php'; // Corrected path
+        } else {
+            // Handle user not found
+            $_SESSION['message'] = "User not found.";
+            header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/user_dashboard.php");
+            exit();
+        }
     }
 
     // Handle profile updates
     public function updateProfile()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Check if user is logged in
+            if (!isset($_SESSION['user_id'])) {
+                // Redirect to login if user is not logged in
+                header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/login.php");
+                exit();
+            }
+
             // Sanitize input to prevent XSS or SQL injection
             $userId = $_SESSION['user_id'];
             $fullname = htmlspecialchars(trim($_POST['fullname']), ENT_QUOTES, 'UTF-8');

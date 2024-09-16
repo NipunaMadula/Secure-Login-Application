@@ -1,10 +1,14 @@
-<?php
+<?php  
 // Start the session
 session_start();
 
 // Include necessary files using relative paths
 require_once __DIR__ . '/../config/database.php'; // Correct path to the database file
 require_once __DIR__ . '/../app/models/User.php'; // Correct path to the User model
+
+// Create a new instance of the database connection
+$database = new Database(); // Assuming your database class is named Database
+$db = $database->getConnection(); // Assuming you have a method to get the connection
 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -40,32 +44,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Instantiate User model
-    $userModel = new User();
+    $userModel = new User($db); // Pass the database connection to the User model
     
     // Check if username or email is already taken
-    if ($userModel->findByUsername($username)) {
+    if ($userModel->usernameExists($username)) {
         $_SESSION['error'] = "Username is already taken.";
         header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/register.php"); // Redirect back to register if username is taken
         exit();
     }
+    
     if ($userModel->findByEmail($email)) {
         $_SESSION['error'] = "Email is already registered.";
         header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/register.php"); // Redirect back to register if email is taken
         exit();
     }
 
-    // Hash the password
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
     // Save the user to the database
     try {
         // Use register method to create a user
-        $userCreated = $userModel->register($fullname, $username, $email, $phone, $address, $hashedPassword);
+        $userCreated = $userModel->register($fullname, $username, $email, $phone, $address, $password);
         
         if ($userCreated) {
             $_SESSION['success'] = "You have successfully registered. Please log in.";
             header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/login.php"); // Redirect to login after successful registration
             exit();
+
         } else {
             $_SESSION['error'] = "Registration failed. Please try again.";
             header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/register.php"); // Redirect back to register on failure

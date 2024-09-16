@@ -1,4 +1,4 @@
-<?php
+<?php 
 // app/controllers/AuthController.php
 
 require '../app/models/User.php'; // Adjust the path as needed
@@ -32,25 +32,26 @@ class AuthController {
             $address = trim($_POST['address']);
             $password = trim($_POST['password']);
 
-            // Simple validation (you can enhance this as needed)
             if (empty($fullname) || empty($username) || empty($email) || empty($phone) || empty($address) || empty($password)) {
-                $error = "All fields are required.";
-                $this->showRegisterForm($error);
+                $this->showRegisterForm("All fields are required.");
                 return;
             }
 
-            // Hash the password
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            if ($this->userModel->usernameExists($username)) {
+                $this->showRegisterForm("Username already exists.");
+                return;
+            }
+            
+            if ($this->userModel->findByEmail($email)) {
+                $this->showRegisterForm("Email already exists.");
+                return;
+            }
 
-            // Call the User model to register the user
-            if ($this->userModel->register($fullname, $username, $email, $phone, $address, $hashedPassword)) {
-                // Registration successful
+            if ($this->userModel->register($fullname, $username, $email, $phone, $address, $password)) {
                 header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/login.php?msg=Registration successful, please login.");
                 exit();
             } else {
-                // Registration failed
-                $error = "Registration failed. Please try again.";
-                $this->showRegisterForm($error);
+                $this->showRegisterForm("Registration failed. Please try again.");
             }
         }
     }
@@ -61,45 +62,46 @@ class AuthController {
             $username = trim($_POST['username']);
             $password = trim($_POST['password']);
 
-            // Call the User model to authenticate the user
-            $user = $this->userModel->login($username, $password);
+            $user = $this->userModel->usernameExists($username);
 
-            if ($user) {
-                // Start the session if not already started
+            if ($user && password_verify($password, $user['password'])) {
                 if (session_status() === PHP_SESSION_NONE) {
                     session_start();
                 }
 
-                // Store user data in session
                 $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username']; // Store username for reference
-                $_SESSION['role'] = $user['role']; // Assuming role is stored in the user table
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = 'user';
 
-                // Redirect based on role
-                if ($user['role'] === 'admin') {
-                    header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/admin_dashboard.php");
-                } else {
-                    header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/user_dashboard.php");
-                }
+                header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/user_dashboard.php");
                 exit();
             } else {
-                // Invalid credentials
-                $error = "Invalid username or password.";
-                $this->showLoginForm($error);
+                // Check admin table if user is not found
+                $admin = $this->userModel->findAdminByUsername($username);
+                if ($admin && password_verify($password, $admin['password'])) {
+                    if (session_status() === PHP_SESSION_NONE) {
+                        session_start();
+                    }
+
+                    $_SESSION['user_id'] = $admin['id'];
+                    $_SESSION['username'] = $admin['username'];
+                    $_SESSION['role'] = 'admin';
+
+                    header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/admin_dashboard.php");
+                    exit();
+                } else {
+                    $this->showLoginForm("Invalid username or password.");
+                }
             }
         }
     }
 
     // Log out the user
     public function logout() {
-        // Start the session
-        session_start();
-        // Unset all session variables
-        $_SESSION = array();
-        // Destroy the session
-        session_destroy();
-        // Redirect to index with logout message
-        header("Location: /Secure-Login-Application-GAHDSE232F-026/public/index.php?msg=You have logged out successfully.");
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            session_destroy();
+        }
+        header("Location: /Secure-Login-Application-GAHDSE232F-026/app/views/login.php");
         exit();
     }
 }

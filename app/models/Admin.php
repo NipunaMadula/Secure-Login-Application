@@ -1,12 +1,16 @@
 <?php
 
+require_once __DIR__ . '/../../config/database.php'; // Ensure this is the correct path for your database connection
+
 class Admin
 {
     private $db;
 
-    public function __construct($database)
+    public function __construct()
     {
-        $this->db = $database;
+        // Initialize the database connection
+        $database = new Database(); // Create an instance of Database
+        $this->db = $database->getConnection(); // Get the database connection from the instance
     }
 
     // Get all users
@@ -21,10 +25,21 @@ class Admin
     // Promote a user to admin
     public function promoteUserToAdmin($userId)
     {
-        $query = "UPDATE users SET role = 'admin' WHERE id = :id";
+        // First, insert the user into the 'admin' table
+        $query = "INSERT INTO admin (username, password) 
+                  SELECT username, password FROM users WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $userId);
-        return $stmt->execute();
+
+        if ($stmt->execute()) {
+            // After successful insertion, delete the user from the 'users' table
+            $deleteQuery = "DELETE FROM users WHERE id = :id";
+            $deleteStmt = $this->db->prepare($deleteQuery);
+            $deleteStmt->bindParam(':id', $userId);
+            return $deleteStmt->execute();
+        }
+
+        return false; // Return false if the insertion failed
     }
 
     // Get a specific user's details
@@ -37,3 +52,4 @@ class Admin
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
+?>
