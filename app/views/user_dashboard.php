@@ -16,9 +16,7 @@ if (!isset($_SESSION['fullname'])) {
 
     <!-- Dashboard buttons -->
     <div class="dashboard-buttons">
-        <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/profile.php'">View Profile</button>
-        <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/messages.php'">Messages</button>
-        <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/settings.php'">Settings</button>
+        <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/user_profile.php'">Update Profile</button>
         <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/public/logout.php'">Logout</button>
     </div>
 </div>

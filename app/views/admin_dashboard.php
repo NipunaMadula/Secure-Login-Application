@@ -39,9 +39,9 @@ $role = $_SESSION['role'];
         
         <div class="button-container">
             <!-- Add buttons or links for admin functionalities -->
-            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/manage_users.php'" class="admin-btn">Manage Users</button>
-            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/view_reports.php'" class="admin-btn">View Reports</button>
-            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/settings.php'" class="admin-btn">Settings</button>
+            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/admin_view_users.php'" class="admin-btn">View Users</button>
+            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/admin_view_user_details.php'" class="admin-btn">User Details</button>
+            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/admin_profile.php'" class="admin-btn">My Profile</button>
         </div>
     </main>
 
