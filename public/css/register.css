@@ -1,56 +1,72 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Light background color */
+    font-family: Times New Roman, sans-serif; 
+    background-color: #f4f4f4; 
     margin: 0;
     padding: 0;
 }
 
 .container {
     width: 100%;
-    max-width: 400px; /* Limit width of the form */
-    margin: 50px auto; /* Center the form */
-    background-color: #fff; /* White background for the form */
-    padding: 20px; /* Padding for the form */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Box shadow for the form */
+    max-width: 400px; 
+    margin: 50px auto; 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
 h1 {
-    text-align: center; /* Centered heading */
+    font-size: 30px; 
+    text-align: center; 
 }
 
 .form-group {
-    margin-bottom: 15px; /* Space below form groups */
+    margin-bottom: 15px; 
 }
 
 label {
-    display: block; /* Block label */
-    margin-bottom: 5px; /* Space below label */
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
 }
 
 input {
-    width: 100%; /* Full width input */
-    padding: 10px; /* Padding for input */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px; /* Rounded corners */
+    width: 100%; 
+    padding: 10px 1px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+}
+
+textarea {
+    width: 100%; 
+    padding: 10px 1px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    resize: vertical; 
 }
 
 .error-message {
-    color: red; /* Red text for error messages */
-    font-size: 0.9em; /* Smaller font size for error messages */
+    color: red; 
+    font-size: 0.9em; 
 }
 
 button {
-    width: 100%; /* Full width button */
-    padding: 10px; /* Padding for button */
-    background-color: #5cb85c; /* Button color */
-    color: white; /* Text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 1.2em; /* Larger font size for button text */
-    cursor: pointer; /* Pointer cursor on hover */
+    width: 100%; 
+    padding: 10px; 
+    background-color: #1b7c1b; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 1.2em; 
+    cursor: pointer; 
 }
 
 button:hover {
-    background-color: #4cae4c; /* Darker green on hover */
+    background-color: #0a3d0a; 
+}
+
+.footer-link {
+    font-family: Times New Roman; 
+    text-align: center; 
+    margin-top: 15px; 
 }

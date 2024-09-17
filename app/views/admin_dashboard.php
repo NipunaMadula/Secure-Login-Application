@@ -24,8 +24,7 @@ $role = $_SESSION['role'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="/Secure-Login-Application-GAHDSE232F-026/public/css/admin_dashboard.css"> <!-- Update to your CSS path -->
-</head>
-<body>
+    <body>
     <header>
         <div class="header-container">
             <h1>Welcome, <?php echo htmlspecialchars($username, ENT_QUOTES, 'UTF-8'); ?></h1>
@@ -39,16 +38,12 @@ $role = $_SESSION['role'];
         
         <div class="button-container">
             <!-- Add buttons or links for admin functionalities -->
-            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/admin_view_users.php'" class="admin-btn">View Users</button>
-            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/admin_view_user_details.php'" class="admin-btn">User Details</button>
+            <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/admin_view_users.php'" class="admin-btn">View User Details</button>
             <button onclick="location.href='/Secure-Login-Application-GAHDSE232F-026/app/views/admin_profile.php'" class="admin-btn">My Profile</button>
-        </div>
-    </main>
-
-    <footer>
-        <div class="logout-container">
+            
+            <!-- Logout button aligned to the right -->
             <a href="/Secure-Login-Application-GAHDSE232F-026/public/logout.php" class="logout-btn">Logout</a>
         </div>
-    </footer>
+    </main>
 </body>
 </html>

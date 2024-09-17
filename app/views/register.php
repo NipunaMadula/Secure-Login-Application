@@ -13,6 +13,8 @@ unset($_SESSION['error']); // Clear the error message after displaying it
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="/Secure-Login-Application-GAHDSE232F-026/public/css/register.css">
+
     <link rel="stylesheet" href="/Secure-Login-Application-GAHDSE232F-026/public/css/register.css"> <!-- Updated path to register.css -->
     <script src="/Secure-Login-Application-GAHDSE232F-026/public/js/register.js" defer></script> <!-- Updated path to register.js -->
 </head>
@@ -63,9 +65,8 @@ unset($_SESSION['error']); // Clear the error message after displaying it
                 <div class="error-message" id="confirmPasswordError"></div>
             </div>
             <button type="submit">Register</button>
-        </form>
-
-        <p>Already have an account? <a href="/Secure-Login-Application-GAHDSE232F-026/app/views/login.php">Login here</a></p> <!-- Link to login page -->
-    </div>
+            </form>
+            <p class="footer-link">Already have an account? <a href="/Secure-Login-Application-GAHDSE232F-026/app/views/login.php">Login here</a></p> <!-- Link to login page -->
+            </div>
 </body>
 </html>

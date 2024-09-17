@@ -41,15 +41,26 @@ $stmt->bindParam(':username', $username);
 $stmt->execute();
 
 $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-
-if ($admin) {
-    echo "<h1>Admin Profile</h1>";
-    echo "ID: " . htmlspecialchars($admin['id']) . "<br>";
-    echo "Username: " . htmlspecialchars($admin['username']) . "<br>";
-    echo "Password: <em>Stored securely (not displayed for security reasons)</em><br>";
-    echo "Created At: " . htmlspecialchars($admin['created_at']) . "<br>";
-    echo "Role: " . htmlspecialchars($admin['role']) . "<br>"; // Displaying the role
-} else {
-    echo "Admin not found.";
-}
 ?>
+
+<!-- Link to the CSS file for styling -->
+<link rel="stylesheet" type="text/css" href="/Secure-Login-Application-GAHDSE232F-026/public/css/admin_profile.css">
+
+<!-- Profile Container -->
+<div class="profile-container">
+    <?php if ($admin): ?>
+        <h1>Admin Profile</h1>
+        <div class="profile-details">
+            <p><strong>ID:</strong> <?php echo htmlspecialchars($admin['id']); ?></p>
+            <p><strong>Username:</strong> <?php echo htmlspecialchars($admin['username']); ?></p>
+            <p><strong>Password:</strong> <em>Stored securely (not displayed for security reasons)</em></p>
+            <p><strong>Created At:</strong> <?php echo htmlspecialchars($admin['created_at']); ?></p>
+            <p><strong>Role:</strong> <?php echo htmlspecialchars($admin['role']); ?></p>
+        </div>
+        <!-- Back button to Admin Dashboard -->
+<a href="/Secure-Login-Application-GAHDSE232F-026/app/views/admin_dashboard.php" class="back-button">Back to Dashboard</a>
+
+    <?php else: ?>
+        <p>Admin not found.</p>
+    <?php endif; ?>
+</div>

@@ -24,7 +24,8 @@ $users = $adminModel->getAllUsers(); // This should be a method in Admin.php to 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Users</title>
-    <link rel="stylesheet" href="/Secure-Login-Application-GAHDSE232F-026/public/css/admin_view_users.css"> <!-- Correct link to the CSS file -->
+    <!-- Correct link to the CSS file in the project -->
+    <link rel="stylesheet" href="/Secure-Login-Application-GAHDSE232F-026/public/css/admin_view_users.css">
 </head>
 <body>
     <div class="container">
@@ -49,12 +50,19 @@ $users = $adminModel->getAllUsers(); // This should be a method in Admin.php to 
                         <td><?= htmlspecialchars($user['email']); ?></td>
                         <td><?= htmlspecialchars($user['role']); ?></td>
                         <td>
-                            <a href="/Secure-Login-Application-GAHDSE232F-026/app/views/admin_view_user_details.php?id=<?= $user['id']; ?>">View Details</a>
+                        <a href="/Secure-Login-Application-GAHDSE232F-026/app/views/admin_view_user_details.php?id=<?= $user['id']; ?>" 
+                        style="background-color: #1a528d; color: white; padding: 8px 16px; text-decoration: none; border-radius: 5px; display: inline-block;">View Details</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+
+        <!-- Back to Dashboard Button -->
+        <div style="text-align: center; margin-top: 20px;">
+        <a href="/Secure-Login-Application-GAHDSE232F-026/app/views/admin_dashboard.php" style="background-color: #1a528d; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Back to Dashboard</a>
+        </div>
+
     </div>
 </body>
 </html>
