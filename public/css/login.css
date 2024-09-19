@@ -1,4 +1,13 @@
 /* login.css */
+body {
+
+    background-image: url('../images/img2.jpg');
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+    background-position: center; /* Center the image */
+    margin: 0;
+    padding: 0;
+}
 .container {
     width: 300px;
     margin: 100px auto;

@@ -1,7 +1,7 @@
 body {
     font-family: Times New Roman, sans-serif; 
     background-color: #f4f4f4; 
-    background-image: url('../images/img1.jpg');
+    background-image: url('../images/img2.jpg');
     background-size: cover; /* Cover the entire viewport */
     background-repeat: no-repeat; /* Prevents repeating the image */
     background-position: center; /* Center the image */
@@ -13,7 +13,7 @@ body {
     width: 100%;
     max-width: 400px; 
     margin: 50px auto; 
-    background-color: #fff; 
+ 
     padding: 20px; 
     border-radius: 5px; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 

@@ -2,6 +2,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
+    background-image: url('../images/img2.jpg');
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+    background-position: center; /* Center the image */
     margin: 0;
     padding: 0;
 }
@@ -10,7 +14,7 @@ body {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #f4f4f4;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;

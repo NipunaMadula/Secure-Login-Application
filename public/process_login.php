@@ -1,7 +1,21 @@
 <?php 
 
+// Set secure session cookie parameters
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path' => '/',
+    'domain' => '', 
+    'secure' => true, 
+    'httponly' => true, 
+    'samesite' => 'Strict' 
+]);
+
 // Start the session
 session_start();
+require_once __DIR__ . '/../vendor/autoload.php'; // Load Composer's autoload file
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..'); // Path to the project root
+$dotenv->load();
 
 // Include necessary files
 require_once '../config/database.php'; // Ensure this path is correct
@@ -40,8 +54,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // If not found, check admin table
     $admin = $userModel->findAdminByUsername($username);
+
+    $pepperl = $_ENV['PEPPER'];
+
+    // Add pepper to the password
+    $pepperedPasswordadmin = $password . $pepperl;
     
-    if ($admin && password_verify($password, $admin['password'])) {
+    if ($admin && password_verify($pepperedPasswordadmin, $admin['password'])) {
         // Password is correct, set session variables for the admin
         $_SESSION['user_id'] = $admin['id'];
         $_SESSION['username'] = $admin['username'];
@@ -54,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // If no user or admin found, set an error message
-    $_SESSION['error'] = "Invalid username or password.";
+    $_SESSION['error'] ="Ïnvalid Username or Password";
 }
 
 // Redirect back to login page if error occurs

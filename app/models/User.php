@@ -2,15 +2,22 @@
 
 require_once __DIR__ . '/../../config/database.php'; // Ensure correct path for Database class
 
+// Load environment variables from the .env file
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../'); // Path to the project root
+$dotenv->load();
+
+
 class User
 {
     private $db;
+
 
     // Constructor to initialize database connection
     public function __construct()
     {
         $database = new Database(); // Create a new Database instance
         $this->db = $database->getConnection(); // Get the database connection
+
     }
 
     // Method to get user by ID
@@ -66,8 +73,14 @@ class User
             return false; // User already exists
         }
 
-        // Hash the password
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $pepper = $_ENV['PEPPER'];
+
+         // Add pepper to the password
+         $pepperedPassword = $password . $pepper; // You can also prepend the pepper if desired
+
+          // Hash the password (bcrypt will automatically add the salt)
+        $hashedPassword = password_hash($pepperedPassword, PASSWORD_DEFAULT);
 
         // Prepare SQL statement to insert new user
         $query = "INSERT INTO users (fullname, username, email, phone, address, password) 
@@ -92,10 +105,20 @@ class User
         $stmt->bindParam(':username', $username);
         $stmt->execute();
 
+        $pepper = $_ENV['PEPPER'];
+
+
+         // Add pepper to the password
+         $pepperedPassword = $password . $pepper;
+
+
+
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($pepperedPassword, $user['password'])) {
             return $user; // Return user details if password is correct
         }
+
+        $_SESSION['error'] = $pepperedPassword;
         return false; // Invalid username or password
     }
 

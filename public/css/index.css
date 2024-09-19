@@ -1,6 +1,9 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4; /* Light background color */
+    background-image: url('../images/img1.jpg');
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevents repeating the image */
     margin: 0;
     padding: 0;
 }
@@ -24,7 +27,7 @@ h1 {
 .button {
     display: inline-block; /* Inline block for buttons */
     padding: 10px 20px; /* Padding for button */
-    background-color: #5cb85c; /* Button color */
+    background-color: #2c992c; /* Button color */
     color: white; /* Text color */
     text-decoration: none; /* No underline */
     border-radius: 5px; /* Rounded corners */
@@ -33,7 +36,7 @@ h1 {
 }
 
 .button:hover {
-    background-color: #4cae4c; /* Darker green on hover */
+    background-color: #195319; /* Darker green on hover */
 }
 
 .login-link {

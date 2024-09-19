@@ -42,8 +42,9 @@ $conn = null;
 <!-- Link to the CSS file for styling -->
 <link rel="stylesheet" type="text/css" href="/Secure-Login-Application-GAHDSE232F-026/public/css/user_profile.css">
 
-
-<h1>Update Profile</h1>
+<br>
+<br>
+<br>
 
 <?php if (isset($_SESSION['message'])): ?>
     <p><?php echo $_SESSION['message']; ?></p>
@@ -54,6 +55,7 @@ $conn = null;
 <?php if ($user): ?>
     <!-- If user data is available, display the form -->
     <form action="../../public/process_update_profile.php" method="POST">
+    <h1 style="text-align: center;">Update Profile</h1>
         <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user_id, ENT_QUOTES, 'UTF-8'); ?>">
 
         <label for="fullname">Full Name</label>

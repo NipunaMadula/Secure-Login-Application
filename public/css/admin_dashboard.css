@@ -4,6 +4,9 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    background-image: url('../images/img2.jpg');
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Prevents repeating the image */
 }
 
 /* Header styles */
