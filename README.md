@@ -110,6 +110,13 @@ This project is a Secure Login Application that implements Authentication, Autho
 - **Secure Sessions**: Sessions are managed securely, and session IDs are regenerated frequently.
 - **Parameterized Queries**: SQL injection is prevented through the use of parameterized queries.
 
+## Future Enhancements
+
+- Add email verification for user registration
+- Implement password recovery functionality
+- Improve user dashboard with activity logs
+
+
 ## GitHub URL
 
 [Secure Login Application Repository](https://github.com/NipunaMadula/Secure-Login-Application-GAHDSE232F-026)
