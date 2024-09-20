@@ -125,6 +125,14 @@ This project is a Secure Login Application that implements Authentication, Autho
 
  https://dev.mysql.com/doc/
 
+## Contribution Guidelines
+
+- Fork the repository
+- Create a new branch (`git checkout -b feature/your-feature-name`)
+- Commit your changes (`git commit -m 'Add new feature'`)
+- Push to the branch (`git push origin feature/your-feature-name`)
+- Create a new Pull Request
+
 ## License
 
 This project is open-source and available under the [MIT License](LICENSE).
