@@ -1,6 +1,4 @@
-## My New Deployed URL -: https://jasminewhitehouse.com/
-
-# Secure Login Application (GAHDSE232F-026)
+# Secure Login Application 
 
 ## Project Overview
 
@@ -125,7 +123,7 @@ This project is a Secure Login Application that implements Authentication, Autho
 
 ## Deployed URL
 
- https://dev.mysql.com/doc/
+http://nipuna.atwebpages.com/
 
 ## Contribution Guidelines
 
